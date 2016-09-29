@@ -93,7 +93,7 @@ public class BindUiLifeCycle implements UiLifeCycle {
 			//register internal ON_BIND_INIT event listener to delay the timing of init and loading bindings
 			comp.addEventListener(10000, BinderImpl.ON_BIND_INIT, new EventListener<Event>() {
 
-				public void onEvent(Event event) throws Exception {
+				public void onEvent(Event event) throws Exception { //wenn: reInitBinder
 					final Component comp = event.getTarget();
 					comp.removeEventListener(BinderImpl.ON_BIND_INIT, this);
 					reInitBinder(comp);

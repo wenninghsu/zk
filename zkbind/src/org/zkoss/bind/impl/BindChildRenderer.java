@@ -46,7 +46,7 @@ public class BindChildRenderer extends AbstractRenderer {
 		render(owner, data, index, size, false);
 	}
 	
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings("unchecked") //wenn
 	public void render(final Component owner, final Object data, final int index, final int size,
 			final boolean isListModel) {
 		final Template tm = resolveTemplate(owner, owner, data, index, size, "children");

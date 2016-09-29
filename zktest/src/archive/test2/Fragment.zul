@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Fragment.zul
+
+	Purpose:
+		
+	Description:
+		
+	History:
+		Wed Sep  7 09:51:44 CST 2016, Created by wenninghsu
+
+Copyright (C) 2016 Potix Corporation. All Rights Reserved.
+
+-->
+<zk>
+    <window viewModel="@id('vm') @init('org.zkoss.zktest.test2.FragmantVM')">
+        <textbox value="@bind(vm.tbValue)"/>
+        <!--<button label="@bind(vm.zkBtnValue)" onClick="@command('change')"/>-->
+        <!--<textbox value="@bind(vm.zkBtnValue)"/>-->
+    <!--<apply template="bsbutton"/>-->
+    <!--</window>-->
+    <!--<template name="bsbutton">-->
+        <fragment id="frag"><![CDATA[
+        <input type="text" value="@bind(vm.fragmentInputValue)"/>
+        <if test="@load(vm.show)">
+            <input type="text" value="show input"/>
+        </if>
+        <button onClick="@command('change')" textContent="@bind(vm.fragmentBtnValue)">
+    ]]></fragment>
+        <button onClick="frag.invalidate()" label="invalidate fragment"/>
+        <!--</template>-->
+
+        <!--<button label="@bind(vm.fragmentBtnValue)" onClick="@command('change')"/>-->
+
+        <!-- Use case: forEach-->
+        <!--<window viewModel="@id('vm') @init('org.zkoss.zktest.test2.FragmantVM')">-->
+        <!--<div id="div1" style="background:pink;">-->
+        <!--<forEach items="@load(vm.customers)">-->
+        <!--<textbox value="@bind(each.name0)" onChange="alert(self.value)"/>-->
+        <!--<label value="@bind(vm.fragmentInputValue)"/>-->
+        <!--</forEach>-->
+        <!--</div>-->
+        <!--<button onClick='div1.invalidate()'/>-->
+        <button label="btn" onClick="@command('change')"/>
+        <!--<x:button xmlns:x="xhtml" value="123"/>-->
+    </window>
+
+
+</zk>
+
+
+<!--<fragment>-->
+    <!--<forEach items="@load(vm.model)">-->
+        <!--<label value="@load(each)"/>-->
+    <!--</forEach>-->
+<!--</fragment>-->
+
+<!--<input type="text" value=""/>-->
+<!--<foreach>-->
+    <!--<button onClick="" contentText=""/>-->
+<!--</foreach>-->
+
