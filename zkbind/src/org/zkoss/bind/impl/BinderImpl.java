@@ -1577,7 +1577,7 @@ public class BinderImpl implements Binder, BinderCtrl, Serializable {
 						_commandBinding, event);
 				BindContext ctx = new BindContextImpl(null, null, false, null, comp, null);
 				ctx.setAttribute(ImplicitObjectELResolver.IMPLICIT_OBJECTS, implicit);
-				command = (String) eval.getValue(ctx, comp, ((CommandBindingImpl) _commandBinding).getCommand()); //wenn: command = "" ???
+				command = (String) eval.getValue(ctx, comp, ((CommandBindingImpl) _commandBinding).getCommand());
 				if (!Strings.isEmpty(command)) { //avoid the execution of a empty command.
 					//ZK-1032 Able to wire Event to command method
 					final Map<String, Object> args = BindEvaluatorXUtil.evalArgs(eval, comp, _commandBinding.getArgs(),

@@ -614,16 +614,6 @@ def alert(m):
 		<preserve-blank/>
 	</component>
 	<component>
-		<component-name>fragment</component-name>
-		<component-class>org.zkoss.zul.Fragment</component-class>
-		<widget-class>zul.wgt.Fragment</widget-class>
-		<text-as>content</text-as><!-- treat text within the element as the content property -->
-		<mold>
-			<mold-name>default</mold-name>
-			<mold-uri>mold/fragment.js</mold-uri>
-		</mold>
-	</component>
-	<component>
 		<component-name>grid</component-name>
 		<component-class>org.zkoss.zul.Grid</component-class>
 		<widget-class>zul.grid.Grid</widget-class>
