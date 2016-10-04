@@ -7,7 +7,7 @@ public class F70_ZK_2483_VM {
 	
 	public Map<String, String> getEntries() {
 		Map<String, String> entries = new HashMap<String, String>();
-		for (int i = 0; i < 100; i++) {
+		for (int i = 0; i < 10; i++) {
 			entries.put("key " + i, "value " + i);
 		}
 		return entries;

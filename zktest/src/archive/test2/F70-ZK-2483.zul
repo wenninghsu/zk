@@ -5,11 +5,12 @@
 		<label multiline="true">
 			Should display value and key in each entry of the map correctly
 		</label>
-		<vlayout id="init" children="@init(vm.entries)">
+		<vlayout id="init" children="@load(vm.entries)">
 	        <template name="children" var="node">
-	            <label value="@load(node.key)" style="padding-left:10px"/>
-	            <label value="@load(node.value)" style="padding-left:10px"/>
+	            <textbox value="@bind(node.key)" style="padding-left:10px"/>
+	            <textbox value="@bind(node.value)" style="padding-left:10px"/>
 	        </template>
-	    </vlayout> 
+	    </vlayout>
+		<button onClick="init.invalidate()"/>
 	</window>
 </zk>

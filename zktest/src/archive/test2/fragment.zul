@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+fragment.zul
+
+	Purpose:
+		
+	Description:
+		
+	History:
+		Fri Sep 30 17:34:01 CST 2016, Created by wenninghsu
+
+Copyright (C) 2016 Potix Corporation. All Rights Reserved.
+
+-->
+<nodom viewModel="@id('vm') @init('org.zkoss.zktest.test2.FragmentVM')">
+  	<textbox value="@bind(vm.inputValue)"/>
+  	<nodom>
+  	  	<!--<fragment customer="@load(vm.customer)"><![CDATA[-->
+			<!--<if test="customer">-->
+				<!--<span class="customer">-->
+					<!--<strong>Name: </strong>{{customer.name}}-->
+					<!--<br/>-->
+					<!--<strong>Age: </strong>{{customer.age}}-->
+				<!--</span>-->
+				<!--<div>-->
+					<!--<input type="text" value="{{customer.nation}}"/>-->
+				<!--</div>-->
+			<!--</if>-->
+  	  	<!--]]></fragment>-->
+  	  	<fragment customer="@load(vm.customer)">
+			<textbox value="@load(customer.name)"/>
+  	  	</fragment>
+  	  	<!--<button label="123"/>-->
+  	</nodom>
+</nodom>
