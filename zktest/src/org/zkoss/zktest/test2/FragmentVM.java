@@ -26,7 +26,7 @@ public class FragmentVM {
 
 	public FragmentVM() {
 		this.inputValue = "";
-		this.customer = new Customer("Jumper", 30, "Taiwan");
+		this.customer = new Customer("Tom", 30, "Taiwan");
 	}
 
 	public String getInputValue() {

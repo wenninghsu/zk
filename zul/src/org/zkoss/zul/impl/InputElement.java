@@ -836,7 +836,7 @@ public abstract class InputElement extends XulElement implements Constrainted, R
 				}
 
 				final String valstr = coerceToString(value);
-				setValueByClient(value, valstr); //always since it might have func even not change
+				setValueByClient(value, valstr); //always since it might have func even not change //wenn: will set bew value to textbox value here
 				if (rawValue != null && !rawValue.equals(valstr))
 					smartUpdate("_value", marshall(_value));
 

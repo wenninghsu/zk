@@ -13,28 +13,6 @@ fragment.zul
 Copyright (C) 2016 Potix Corporation. All Rights Reserved.
 
 -->
-<!--<nodom viewModel="@id('vm') @init('org.zkoss.zktest.test2.FragmentVM')">-->
-  	<!--<textbox value="@bind(vm.inputValue)"/>-->
-  	<!--<nodom>-->
-  	  	<!--&lt;!&ndash;<fragment customer="@load(vm.customer)"><![CDATA[&ndash;&gt;-->
-			<!--&lt;!&ndash;<if test="customer">&ndash;&gt;-->
-				<!--&lt;!&ndash;<span class="customer">&ndash;&gt;-->
-					<!--&lt;!&ndash;<strong>Name: </strong>{{customer.name}}&ndash;&gt;-->
-					<!--&lt;!&ndash;<br/>&ndash;&gt;-->
-					<!--&lt;!&ndash;<strong>Age: </strong>{{customer.age}}&ndash;&gt;-->
-				<!--&lt;!&ndash;</span>&ndash;&gt;-->
-				<!--&lt;!&ndash;<div>&ndash;&gt;-->
-					<!--&lt;!&ndash;<input type="text" value="{{customer.nation}}"/>&ndash;&gt;-->
-				<!--&lt;!&ndash;</div>&ndash;&gt;-->
-			<!--&lt;!&ndash;</if>&ndash;&gt;-->
-  	  	<!--&lt;!&ndash;]]></fragment>&ndash;&gt;-->
-  	  	<!--<fragment customer="@load(vm.customer)">-->
-			<!--<input value="{{customer.name}}"/>-->
-  	  	<!--</fragment>-->
-  	  	<!--&lt;!&ndash;<button label="123"/>&ndash;&gt;-->
-  	<!--</nodom>-->
-<!--</nodom>-->
-
 <nodom viewModel="@id('vm') @init('org.zkoss.zktest.test2.FragmentVM')">
 	<fragment id="fg" customer="@bind(vm.customer)"><![CDATA[
 		<span>{{customer.name}}</span>
@@ -43,4 +21,5 @@ Copyright (C) 2016 Potix Corporation. All Rights Reserved.
 		<input v-model="customer.age" v-on:change="onChangeMethod"/>
 	]]></fragment>
 	<button onClick="fg.invalidate()" label="fragment invalidate"/>
+	<textbox value="@bind(vm.inputValue)"/>
 </nodom>

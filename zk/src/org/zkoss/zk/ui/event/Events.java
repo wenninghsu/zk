@@ -37,7 +37,7 @@ import org.zkoss.zk.ui.util.Clients;
  * @author tomyeh
  */
 public class Events {
-	private Events() {
+	private  Events() {
 	} //prevent from creation
 
 	/** The onClick event (used with {@link MouseEvent}).
