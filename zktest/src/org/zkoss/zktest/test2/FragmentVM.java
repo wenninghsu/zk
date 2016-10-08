@@ -14,6 +14,8 @@ it will be useful, but WITHOUT ANY WARRANTY.
 */
 package org.zkoss.zktest.test2;
 
+import org.zkoss.zkmax.bind.GsonConverter;
+
 /**
  * 
  * @author wenninghsu
@@ -24,9 +26,19 @@ public class FragmentVM {
 
 	private Customer customer;
 
+	private GsonConverter _gsonConverter = new GsonConverter();
+
 	public FragmentVM() {
 		this.inputValue = "";
 		this.customer = new Customer("Tom", 30, "Taiwan");
+	}
+
+	public GsonConverter getGsonConverter() {
+		return _gsonConverter;
+	}
+
+	public void setGsonConverter(GsonConverter gsonConverter) {
+		this._gsonConverter = gsonConverter;
 	}
 
 	public String getInputValue() {
