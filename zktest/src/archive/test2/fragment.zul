@@ -14,8 +14,8 @@ Copyright (C) 2016 Potix Corporation. All Rights Reserved.
 
 -->
 <nodom viewModel="@id('vm') @init('org.zkoss.zktest.test2.FragmentVM')">
-	<fragment id="fg" customer="@bind(vm.customer) @converter(vm.gsonConverter)"><![CDATA[
-	<!--<fragment id="fg" customer="@bind(vm.customer)"><![CDATA[-->
+	<!--<fragment id="fg" customer="@bind(vm.customer) @converter(vm.gsonConverter)"><![CDATA[-->
+	<fragment id="fg" customer="@bind(vm.customer)"><![CDATA[
 		<span>{{customer.name}}</span>
 		<span>{{customer.age}}</span>
 		<span>{{customer.nation}}</span>

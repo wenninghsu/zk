@@ -177,7 +177,6 @@ public class Textbox extends InputElement {
 	static {
 		_properties.put("value", new StringPropertyAccess() {
 			public void setValue(Component cmp, String value) {
-				System.out.println("quite setValue");
 				((Textbox) cmp).setValue(value);
 			}
 
