@@ -297,6 +297,7 @@ public abstract class InputElement extends XulElement implements Constrainted, R
 	 * @param value the value; If null, it is considered as empty.
 	 */
 	public void setText(String value) throws WrongValueException {
+		System.out.println("Textbox setText");
 		if (_auxinf != null && _auxinf.maxlength > 0 && value != null && value.length() > _auxinf.maxlength)
 			throw new WrongValueException(this, MZul.STRING_TOO_LONG, new Integer(_auxinf.maxlength));
 
@@ -598,6 +599,7 @@ public abstract class InputElement extends XulElement implements Constrainted, R
 	 * @see #getRawValue
 	 */
 	public void setRawValue(Object value) {
+		System.out.println("setRawValue");
 		if ((_auxinf != null && _auxinf.errmsg != null) || !Objects.equals(_value, value)) {
 			clearErrorMessage(true);
 			_value = value;
@@ -616,6 +618,7 @@ public abstract class InputElement extends XulElement implements Constrainted, R
 	 * @since 3.0.3
 	 */
 	protected void setValueDirectly(Object value) {
+		System.out.println("setValueDirectly");
 		_value = value;
 	}
 
@@ -790,6 +793,7 @@ public abstract class InputElement extends XulElement implements Constrainted, R
 	}
 
 	private void setValueByClient(Object value, String valstr) {
+		System.out.println("setValueByClient");
 		if (_auxinf != null && _auxinf.maxlength > 0 && valstr != null && valstr.length() > _auxinf.maxlength)
 			throw new WrongValueException(this, MZul.STRING_TOO_LONG, new Integer(_auxinf.maxlength));
 

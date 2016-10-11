@@ -46,6 +46,7 @@ public class FragmentVM {
 	}
 
 	public void setInputValue(String inputValue) {
+		System.out.println("setInputValue");
 		this.inputValue = inputValue;
 	}
 
@@ -54,6 +55,7 @@ public class FragmentVM {
 	}
 
 	public void setCustomer(Customer customer) {
+		System.out.println("setCustomer");
 		this.customer = customer;
 	}
 
