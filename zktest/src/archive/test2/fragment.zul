@@ -15,11 +15,15 @@ Copyright (C) 2016 Potix Corporation. All Rights Reserved.
 -->
 <nodom viewModel="@id('vm') @init('org.zkoss.zktest.test2.FragmentVM')">
 	<!--<fragment id="fg" customer="@bind(vm.customer) @converter(vm.gsonConverter)"><![CDATA[-->
-	<fragment id="fg" customer="@bind(vm.customer)"><![CDATA[
-		<span>{{customer.name}}</span>
-		<span>{{customer.age}}</span>
-		<span>{{customer.nation}}</span>
-		<input v-model="customer.age" v-on:change="onChangeMethod"/>
+	<fragment id="fg" first="@bind(vm.customer)" next="@bind(vm.author)"><![CDATA[
+		<span>{{first.name}}</span>
+		<span>{{first.age}}</span>
+		<span>{{first.nation}}</span>
+		<input v-model="first.age" v-on:change="onChangeMethodfirst"/>
+		<span>{{next.name}}</span>
+		<span>{{next.age}}</span>
+		<span>{{next.nation}}</span>
+		<input v-model="next.age" v-on:change="onChangeMethodnext"/>
 	]]></fragment>
 	<button onClick="fg.invalidate()" label="fragment invalidate"/>
 	<textbox value="@bind(vm.inputValue)"/>

@@ -26,9 +26,12 @@ public class FragmentVM {
 
 	private Customer customer;
 
+	private Author author;
+
 	public FragmentVM() {
 		this.inputValue = "";
 		this.customer = new Customer("Tom", 30, "Taiwan");
+		this.author = new Author("Jumper", 22, "Taipei");
 	}
 
 	public String getInputValue() {
@@ -49,6 +52,14 @@ public class FragmentVM {
 		this.customer = customer;
 	}
 
+	public Author getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(Author author) {
+		this.author = author;
+	}
+
 	class Customer {
 
 		private String name;
@@ -58,6 +69,45 @@ public class FragmentVM {
 		private String nation;
 
 		public Customer(String name, int age, String nation) {
+			this.name = name;
+			this.age = age;
+			this.nation = nation;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public int getAge() {
+			return age;
+		}
+
+		public void setAge(int age) {
+			this.age = age;
+		}
+
+		public String getNation() {
+			return nation;
+		}
+
+		public void setNation(String nation) {
+			this.nation = nation;
+		}
+	}
+
+	class Author {
+
+		private String name;
+
+		private int age;
+
+		private String nation;
+
+		public Author(String name, int age, String nation) {
 			this.name = name;
 			this.age = age;
 			this.nation = nation;
