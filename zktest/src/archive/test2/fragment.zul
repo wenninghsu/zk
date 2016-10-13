@@ -14,17 +14,22 @@ Copyright (C) 2016 Potix Corporation. All Rights Reserved.
 
 -->
 <nodom viewModel="@id('vm') @init('org.zkoss.zktest.test2.FragmentVM')">
-	<!--<fragment id="fg" customer="@bind(vm.customer) @converter(vm.gsonConverter)"><![CDATA[-->
-	<fragment id="fg" first="@bind(vm.customer)" next="@bind(vm.author)"><![CDATA[
-		<span>{{first.name}}</span>
-		<span>{{first.age}}</span>
-		<span>{{first.nation}}</span>
-		<input v-model="first.age" v-on:change="onChangeMethodfirst"/>
-		<span>{{next.name}}</span>
-		<span>{{next.age}}</span>
-		<span>{{next.nation}}</span>
-		<input v-model="next.age" v-on:change="onChangeMethodnext"/>
+	<fragment id="fg" first="@bind(vm.customer)" next="@bind(vm.author)" stu="@bind(vm.students)"><![CDATA[
+		<div v-if="first" style="border:1px solid grey;padding:5px;">
+			{{first.name}}
+			<input v-if="first.age" v-model="first.age" v-on:change="onChangefirst"/></li>
+			{{first.nation}}
+		</div>
+		<div style="border:1px solid grey;padding:5px;">
+			<ul>
+				<li v-for="student in stu">
+					{{ student.name }}
+					age: {{ student.age }}
+					<input v-model="student.score" v-on:change="onChangestu"/>
+				</li>
+			</ul>
+		</div>
+		<button v-on:click="clickClickMe"/>click me</button>
 	]]></fragment>
 	<button onClick="fg.invalidate()" label="fragment invalidate"/>
-	<textbox value="@bind(vm.inputValue)"/>
 </nodom>

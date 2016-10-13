@@ -14,7 +14,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 */
 package org.zkoss.zktest.test2;
 
-import org.zkoss.zkmax.bind.GsonConverter;
+import org.zkoss.bind.annotation.Command;
 
 /**
  * 
@@ -22,25 +22,16 @@ import org.zkoss.zkmax.bind.GsonConverter;
  */
 public class FragmentVM {
 
-	private String inputValue;
-
 	private Customer customer;
 
 	private Author author;
 
+	private Student[] students;
+
 	public FragmentVM() {
-		this.inputValue = "";
-		this.customer = new Customer("Tom", 30, "Taiwan");
-		this.author = new Author("Jumper", 22, "Taipei");
-	}
-
-	public String getInputValue() {
-		return inputValue;
-	}
-
-	public void setInputValue(String inputValue) {
-		System.out.println("setInputValue");
-		this.inputValue = inputValue;
+		this.customer = new Customer("Jumper", 30, "Taiwan");
+		this.author = new Author("Tom", 22, "Taipei");
+		this.students = new Student[]{new Student("Wenning", 10, 80), new Student("Chris", 10, 70)};
 	}
 
 	public Customer getCustomer() {
@@ -58,6 +49,19 @@ public class FragmentVM {
 
 	public void setAuthor(Author author) {
 		this.author = author;
+	}
+
+	public Student[] getStudents() {
+		return students;
+	}
+
+	public void setStudents(Student[] students) {
+		this.students = students;
+	}
+
+	@Command
+	public void clickClickMe() {
+		System.out.println("clickClickMe");
 	}
 
 	class Customer {
@@ -135,6 +139,45 @@ public class FragmentVM {
 
 		public void setNation(String nation) {
 			this.nation = nation;
+		}
+	}
+
+	class Student {
+
+		private String name;
+
+		private int age;
+
+		private int score;
+
+		public Student(String name, int age, int score) {
+			this.name = name;
+			this.age = age;
+			this.score = score;
+		}
+
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public int getAge() {
+			return age;
+		}
+
+		public void setAge(int age) {
+			this.age = age;
+		}
+
+		public int getScore() {
+			return score;
+		}
+
+		public void setScore(int score) {
+			this.score = score;
 		}
 	}
 }
