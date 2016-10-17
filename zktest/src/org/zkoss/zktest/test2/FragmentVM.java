@@ -15,6 +15,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 package org.zkoss.zktest.test2;
 
 import org.zkoss.bind.annotation.Command;
+import org.zkoss.bind.annotation.NotifyChange;
 
 /**
  * 
@@ -60,8 +61,10 @@ public class FragmentVM {
 	}
 
 	@Command
-	public void clickClickMe() {
+	@NotifyChange("*")
+	public void click() {
 		System.out.println("clickClickMe");
+		getCustomer().setName("Jumper 2.0");
 	}
 
 	class Customer {
