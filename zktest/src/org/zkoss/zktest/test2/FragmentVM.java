@@ -23,16 +23,23 @@ import org.zkoss.bind.annotation.NotifyChange;
  */
 public class FragmentVM {
 
-	private Customer customer;
+	private String tbValue = "before";
 
-	private Author author;
+	private Customer customer;
 
 	private Student[] students;
 
 	public FragmentVM() {
 		this.customer = new Customer("Jumper", 30, "Taiwan");
-		this.author = new Author("Tom", 22, "Taipei");
 		this.students = new Student[]{new Student("Wenning", 10, 80), new Student("Chris", 10, 70)};
+	}
+
+	public String getTbValue() {
+		return tbValue;
+	}
+
+	public void setTbValue(String tbValue) {
+		this.tbValue = tbValue;
 	}
 
 	public Customer getCustomer() {
@@ -42,14 +49,6 @@ public class FragmentVM {
 	public void setCustomer(Customer customer) {
 		System.out.println("setCustomer");
 		this.customer = customer;
-	}
-
-	public Author getAuthor() {
-		return author;
-	}
-
-	public void setAuthor(Author author) {
-		this.author = author;
 	}
 
 	public Student[] getStudents() {
@@ -62,9 +61,15 @@ public class FragmentVM {
 
 	@Command
 	@NotifyChange("*")
-	public void click() {
-		System.out.println("clickClickMe");
+	public void clickBtn1() {
+		System.out.println("clickBtn1");
 		getCustomer().setName("Jumper 2.0");
+	}
+	@Command
+	@NotifyChange("*")
+	public void clickBtn2() {
+		System.out.println("clickBtn2");
+		getCustomer().setName("Jumper 3.0");
 	}
 
 	class Customer {
@@ -76,45 +81,6 @@ public class FragmentVM {
 		private String nation;
 
 		public Customer(String name, int age, String nation) {
-			this.name = name;
-			this.age = age;
-			this.nation = nation;
-		}
-
-		public String getName() {
-			return name;
-		}
-
-		public void setName(String name) {
-			this.name = name;
-		}
-
-		public int getAge() {
-			return age;
-		}
-
-		public void setAge(int age) {
-			this.age = age;
-		}
-
-		public String getNation() {
-			return nation;
-		}
-
-		public void setNation(String nation) {
-			this.nation = nation;
-		}
-	}
-
-	class Author {
-
-		private String name;
-
-		private int age;
-
-		private String nation;
-
-		public Author(String name, int age, String nation) {
 			this.name = name;
 			this.age = age;
 			this.nation = nation;
