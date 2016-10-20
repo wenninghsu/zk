@@ -4179,7 +4179,7 @@ public class AbstractComponent implements Component, ComponentCtrl, java.io.Seri
 		node.initAuxInfo().subAnnotCnt += diff;
 	}
 
-	public void enableBindingAnnotation() {
+	public void enableBindingAnnotation() {//wenn: setContent should enable binding annotation
 		setBindingAnnotation0(true);
 	}
 

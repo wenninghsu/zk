@@ -1443,7 +1443,7 @@ public class BinderImpl implements Binder, BinderCtrl, Serializable {
 		return (beforeCmds == null || beforeCmds.length == 0) && (afterCmds == null || afterCmds.length == 0);
 	}
 
-	public void addCommandBinding(Component comp, String evtnm, String commandExpr, Map<String, Object> args) {
+	public void addCommandBinding(Component comp, String evtnm, String commandExpr, Map<String, Object> args) {//wenn: addCommandBinding
 		checkInit();
 		final CommandBinding binding = newCommandBinding(comp, evtnm, commandExpr, args);
 		addBinding(comp, evtnm, binding);
@@ -2212,7 +2212,7 @@ public class BinderImpl implements Binder, BinderCtrl, Serializable {
 	 * @param comp the component
 	 * @param key can be component attribute, event name, or form id
 	 */
-	public void removeBindings(Component comp, String key) {
+	public void removeBindings(Component comp, String key) {//wenn: remove binding when setContent twice?
 		checkInit();
 		removeEventCommandListenerIfExists(comp, key); //_listenerMap; //comp+evtnm -> eventlistener
 		

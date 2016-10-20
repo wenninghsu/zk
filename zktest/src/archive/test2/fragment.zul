@@ -14,32 +14,43 @@ Copyright (C) 2016 Potix Corporation. All Rights Reserved.
 
 -->
 <nodom viewModel="@id('vm') @init('org.zkoss.zktest.test2.FragmentVM')">
-	<fragment id="fg" first="@bind(vm.customer)" stu="@bind(vm.students)"><![CDATA[
-		two way binding, if condition
-		<div v-if="first" style="border:1px solid grey;padding:5px;">
-			{{first.name}}
-			<input v-if="first.age" v-model="first.age"/></li>
-			{{first.nation}}
-		</div>
-		collection, for condition
-		<div style="border:1px solid grey;padding:5px;">
-			<ul>
-				<li v-for="student in stu">
-					{{ student.name }}
-					{{ student.age }}
-					<input v-model="student.score"/>
-				</li>
-			</ul>
-		</div>
-		<!-- @command processing -->
-		<!--@command-->
-		<div style="border:1px solid grey;padding:5px;">
-			<button v-on:click="clickBtn1">click btn1</button>
-			<button v-on:click="clickBtn2">click btn2</button>
-		</div>
-	]]></fragment>
+	<div style="border:1px solid grey; margin:5px; padding:5px;">
+		fragment component
+		<fragment id="fg" cus="@bind(vm.customer)" stu="@bind(vm.students)" onClick="@command('')"><![CDATA[
+			<if test="@load(cus)">
+				<div style="border:1px solid grey; margin:5px; padding:5px;">
+					<span textContent="@load(cus.name)" style=""/>
+					<input value="@bind(cus.age)" style=""/>
+				</div>
+			</if>
+			<div style="border:1px solid grey; margin:5px; padding:5px;">
+				<ul>
+					<li items="@load(stu)" var="student">
+						<span textContent="@load(student.name)" style=""/>
+						<span textContent="@load(student.age)" style=""/>
+						<input value="@bind(student.score)" style=""/>
+					</li>
+				</ul>
+			</div>
+			<div style="border:1px solid grey; margin:5px; padding:5px;">
+				<button onClick="@command('clickBtn1')" style="">click btn1</button>
+				<button onClick="@command('clickBtn2')" style="">click btn2</button>
+			</div>
+		]]></fragment>
+	</div>
 	<button onClick="fg.invalidate()" label="fragment invalidate"/>
-	<button onClick="@command('click')"/>
-	<textbox id="tb" value="@bind(vm.tbValue)"/>
-	<button onClick="tb.invalidate()" label="tb invalidate"/>
+	<button onClick="@command('clickBtn')" label="command"/>
+	<button label="tb setContent">
+		<attribute name="onClick"><![CDATA[
+			String s = "<span textContent=\"@load(cus.name)\"/><button onClick=\"@command('clickBtn')\">click btn</button><button onClick=\"@command('clickBtn1')\" style=\"\">click btn1</button>";
+			fg.setContent(s);
+		]]></attribute>
+	</button>
+	<button label="tb setContent back">
+		<attribute name="onClick"><![CDATA[
+			String s = "<if test=\"@load(cus)\"><div style=\"border:1px solid grey; margin:5px; padding:5px;\"><span textContent=\"@load(cus.name)\" style=\"\"/><input value=\"@bind(cus.age)\" style=\"\"/></div></if><div style=\"border:1px solid grey; margin:5px; padding:5px;\"><ul><li items=\"@load(stu)\" var=\"student\"><span textContent=\"@load(student.name)\" style=\"\"/><span textContent=\"@load(student.age)\" style=\"\"/><input value=\"@bind(student.score)\" style=\"\"/></li></ul></div><div style=\"border:1px solid grey; margin:5px; padding:5px;\"><button onClick=\"@command('clickBtn1')\" style=\"\">click btn1</button><button onClick=\"@command('clickBtn2')\" style=\"\">click btn2</button></div>";
+			fg.setContent(s);
+		]]></attribute>
+	</button>
+
 </nodom>

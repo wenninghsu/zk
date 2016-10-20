@@ -14,6 +14,7 @@ it will be useful, but WITHOUT ANY WARRANTY.
 */
 package org.zkoss.zktest.test2;
 
+import org.zkoss.bind.Validator;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.NotifyChange;
 
@@ -32,6 +33,10 @@ public class FragmentVM {
 	public FragmentVM() {
 		this.customer = new Customer("Jumper", 30, "Taiwan");
 		this.students = new Student[]{new Student("Wenning", 10, 80), new Student("Chris", 10, 70)};
+	}
+
+	public Validator getValidator() {
+		return null;
 	}
 
 	public String getTbValue() {
@@ -70,6 +75,18 @@ public class FragmentVM {
 	public void clickBtn2() {
 		System.out.println("clickBtn2");
 		getCustomer().setName("Jumper 3.0");
+	}
+	@Command
+	@NotifyChange("*")
+	public void clickBtn() {
+		System.out.println("clickBtn");
+		getCustomer().setName("Jumper 4.0");
+	}
+	@Command
+	@NotifyChange("*")
+	public void clickFragment() {
+		System.out.println("clickFragment");
+		getCustomer().setName("Jumper 4.0");
 	}
 
 	class Customer {
