@@ -25,16 +25,22 @@ Copyright (C) 2016 Potix Corporation. All Rights Reserved.
 			</if>
 			<div style="border:1px solid grey; margin:5px; padding:5px;">
 				<ul>
-					<li items="@load(stu)" var="student">
-						<span textContent="@load(student.name)" style=""></span>
-						<span textContent="@load(student.age)" style=""/>
-						<input value="@bind(student.score)" style=""/>
-					</li>
+				<!-- change to template -->
+					<template items="@load(stu)" var="student">
+						<li items="@load(stu)" var="student">
+							<span textContent="@load(student.name)" style=""></span>
+							<span textContent="@load(student.age)" style=""/>
+							<!-- should consider onChange already assigned -->
+							<input value="@bind(student.score)" style="" onChange="@command('clickBtn')"/>
+						</li>
+					</template>
 				</ul>
 			</div>
 			<div>
 				<button onClick="@command('clickBtn1')" style="">click btn1</button>
 				<button onClick="@command('clickBtn2')" style="">click btn2</button>
+				<!-- should consider onClick with no annotations -->
+				<button onClick="console.log('btn click')" style="">click btn2</button>
 			</div>
 		]]></fragment>
 	</div>
