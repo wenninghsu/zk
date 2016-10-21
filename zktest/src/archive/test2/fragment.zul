@@ -26,13 +26,13 @@ Copyright (C) 2016 Potix Corporation. All Rights Reserved.
 			<div style="border:1px solid grey; margin:5px; padding:5px;">
 				<ul>
 					<li items="@load(stu)" var="student">
-						<span textContent="@load(student.name)" style=""/>
+						<span textContent="@load(student.name)" style=""></span>
 						<span textContent="@load(student.age)" style=""/>
 						<input value="@bind(student.score)" style=""/>
 					</li>
 				</ul>
 			</div>
-			<div style="border:1px solid grey; margin:5px; padding:5px;">
+			<div>
 				<button onClick="@command('clickBtn1')" style="">click btn1</button>
 				<button onClick="@command('clickBtn2')" style="">click btn2</button>
 			</div>
@@ -52,5 +52,5 @@ Copyright (C) 2016 Potix Corporation. All Rights Reserved.
 			fg.setContent(s);
 		]]></attribute>
 	</button>
-
+	<textbox value="@bind(vm.tbValue)" onChange="@command('tbOnChange')"/>
 </nodom>

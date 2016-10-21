@@ -166,4 +166,11 @@ public class FragmentVM {
 			this.score = score;
 		}
 	}
+
+	@Command
+	@NotifyChange("*")
+	public void tbOnChange() {
+		System.out.println("tbOnChange");
+		getCustomer().setName("Jumper TextBox onChange");
+	}
 }
