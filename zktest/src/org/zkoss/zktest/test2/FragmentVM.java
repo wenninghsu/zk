@@ -24,6 +24,10 @@ import org.zkoss.bind.annotation.NotifyChange;
  */
 public class FragmentVM {
 
+	private String inputType = "checkbox";
+
+	private String btn1 = "btn1";
+
 	private String tbValue = "before";
 
 	private Customer customer;
@@ -37,6 +41,23 @@ public class FragmentVM {
 
 	public Validator getValidator() {
 		return null;
+	}
+
+
+	public String getInputType() {
+		return inputType;
+	}
+
+	public void setInputType(String inputType) {
+		this.inputType = inputType;
+	}
+
+	public String getBtn1() {
+		return btn1;
+	}
+
+	public void setBtn1(String btn1) {
+		this.btn1 = btn1;
 	}
 
 	public String getTbValue() {
