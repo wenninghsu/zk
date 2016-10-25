@@ -16,31 +16,28 @@ Copyright (C) 2016 Potix Corporation. All Rights Reserved.
 <nodom viewModel="@id('vm') @init('org.zkoss.zktest.test2.FragmentVM')">
 	<div style="border:1px solid grey; margin:5px; padding:5px;">
 		fragment component
-		<fragment id="fg" cus="@bind(vm.customer)" stu="@bind(vm.students)" btn1="@bind(vm.btn1)" inputType="@load(vm.inputType)"><![CDATA[
+		<fragment id="fg" cus="@bind(vm.customer)" stu="@bind(vm.students)" btn1="@bind(vm.btn1)"><![CDATA[
 			<if test="@load(cus)">
 				<div style="border:1px solid grey; margin:5px; padding:5px;">
-					<span textContent="@load(cus.name)" style=""/>
-					<input value="@bind(cus.age)" style=""/>
+					<span textContent="@load(cus.name)"/>
+					<input value="@bind(cus.age)"/>
 				</div>
 			</if>
 			<div style="border:1px solid grey; margin:5px; padding:5px;">
 				<ul>
-					<!-- change to template -->
 					<forEach items="@load(stu)" var="student">
 						<li>
-							<span textContent="@load(student.name)" style=""></span>
-							<span textContent="@load(student.age)" style=""/>
-							<!-- should consider onChange already assigned -->
-							<input type="@load(inputType)" value="@bind(student.score)" textContent="@load(student.score)" style="" onChange="@command('clickBtn')"></input>
+							<span textContent="@load(student.name)"></span>
+							<span textContent="@load(student.age)"/>
+							<input value="@bind(student.score)" onChange="@command('clickBtn')"></input>
 						</li>
 					</forEach>
 				</ul>
 			</div>
 			<div>
-				<button onClick="@command('clickBtn1')" style="" textContent="@load(btn1)"/>
-				<button onClick="@command('clickBtn2')" style="">btn2</button>
-				<!-- should consider onClick with no annotations -->
-				<button onClick="console.log('btn click')" style="">btn3</button>
+				<button onClick="@command('clickBtn1')" textContent="@load(btn1)"/>
+				<button onClick="@command('clickBtn2')">btn2</button>
+				<button onClick="console.log('btn click')">btn3</button>
 			</div>
 		]]></fragment>
 	</div>
@@ -54,7 +51,7 @@ Copyright (C) 2016 Potix Corporation. All Rights Reserved.
 	</button>
 	<button label="tb setContent back">
 		<attribute name="onClick"><![CDATA[
-			String s = "<if test=\"@load(cus)\"><div style=\"border:1px solid grey; margin:5px; padding:5px;\"><span textContent=\"@load(cus.name)\" style=\"\"/><input value=\"@bind(cus.age)\" style=\"\"/></div></if><div style=\"border:1px solid grey; margin:5px; padding:5px;\"><ul><li items=\"@load(stu)\" var=\"student\"><span textContent=\"@load(student.name)\" style=\"\"/><span textContent=\"@load(student.age)\" style=\"\"/><input value=\"@bind(student.score)\" style=\"\"/></li></ul></div><div style=\"border:1px solid grey; margin:5px; padding:5px;\"><button onClick=\"@command('clickBtn1')\" style=\"\">click btn1</button><button onClick=\"@command('clickBtn2')\" style=\"\">click btn2</button></div>";
+			String s = "<if test=\"@load(cus)\"><div style=\"border:1px solid grey; margin:5px; padding:5px;\"><span textContent=\"@load(cus.name)\"/><input value=\"@bind(cus.age)\"/></div></if><div style=\"border:1px solid grey; margin:5px; padding:5px;\"><ul><forEach items=\"@load(stu)\" var=\"student\"><li><span textContent=\"@load(student.name)\"></span><span textContent=\"@load(student.age)\"/><input value=\"@bind(student.score)\" onChange=\"@command('clickBtn')\"></input></li></forEach></ul></div><div><button onClick=\"@command('clickBtn1')\" textContent=\"@load(btn1)\"/><button onClick=\"@command('clickBtn2')\">btn2</button><button onClick=\"console.log('btn click')\">btn3</button></di";
 			fg.setContent(s);
 		]]></attribute>
 	</button>
